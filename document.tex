@@ -1,0 +1,67 @@
+\documentclass[12pt,oneside,notitlepage,abstracton,a4paper]{scrartcl}
+\usepackage{epsfig,scrpage2,graphicx,hyperref}
+\usepackage[a4paper, left=2cm, right=2cm, bottom=3cm]{geometry}
+\usepackage{beppe_package_eng} 
+
+\renewcommand{\L}{\mathcal{L}}
+\newcommand{\A}{\mathcal{A}}
+\newcommand{\ped}{_\textrm}
+\renewcommand{\M}{\mathcal{M}}
+\newcommand{\av}[1]{\langle#1\rangle}
+
+\title{\Large Gauge Theory} 
+\author{Bruno Bucciotti}
+
+\date{\normalsize \today}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+	Mie note del libro di Classical Theory of Gauge Fields di Valery Rubakov. La metrica ha segnatura (+---).
+\end{abstract}
+
+\section{Conti inziali}
+In questa sezione mi annoto qualche conto interessante, ma ancora molto di base.
+\subsection{Soluzione del campo elettromagnetico}
+\subsubsection{4 modi in generale}
+La lagrangiana è
+\[ \L = -\dfrac{1}{4} F_{\mu\nu} F^{\mu\nu} \]
+Le equazioni del moto sono (nell'impulso)
+\[ k^2 A^\mu - k^\mu k_\nu A^\nu = 0 \]
+Distinguiamo 2 casi: $k^2\neq0$ e $k^2=0$. Nel primo caso $A^\mu \propto k^\mu$, che quindi è un modo, detto temporale perchè (assumendo $k^2>0$) nel sistema di riferimento in cui $k^\mu = (k, 0,0,0)$ il modo ha solo componente di tipo tempo.
+
+Altrimenti se $k^2=0$ si ha che $k_\nu A^\nu = 0$, e ci sono tre 4-vettori ortogonali a un dato $k^\mu = (k, 0, 0, k)$ (assunto wlog lungo $\hat{z}$). Due sono ortogonali a $\vec{k}$ (modi trasversali), il terzo è proporzionale a $k^\mu$, detto modo longitudinale.
+\subsubsection{Fissare la gauge}
+Fissare la gauge di Coulomb $\nabla\cdot \vec{A} = 0$ significa $\vec{k}\cdot\vec{A}=0$, da cui si uccide il modo longitudinale. Fissare la gauge di Lorenz $k_\mu A^\mu= 0$ significa invece uccidere il modo temporale. E' noto che si possano fare queste scelte di gauge. Verifico invece che, qualsiasi di queste due scelte si faccia, si può poi imporre $A^0 = 0$.
+
+Partiamo dalla gauge di Lorenz e facciamo un cambio di gauge $A^\mu \rightarrow A^\mu + \partial^\mu \alpha$. Per restare in gauge di Lorenz dobbiamo imporre $\partial^\mu\partial_\mu \alpha = 0$, da cui è sufficiente prendere $\alpha \propto e^{\pm i kx}$. E' possibile imporre anche $A^0 = 0$? Sì perchè $A^0 + k^0 \tilde{\alpha} = 0$ ha soluzione, in quanto se fosse $k^0=0$ (considerando che $k^2=0$) avrei $k^\mu \equiv 0$.
+
+Si può verificare che anche partendo dalla gauge di Coulomb si può imporre $A^0=0$. Aggiungendo tale gauge fixing le gauge di coulomb e di lorenz diventano uguali. A seconda di quale sia la gauge di partenza, imporre $A^0=0$ uccide la polarizzazione temporale o quella longitudinale (a seconda di quale fosse sopravvissuta prima).
+
+\subsubsection{Gauge assiale}
+Il problema è imporre la condizione di gauge $\vec{A} \cdot \hat{z} = 0$. Partiamo con l'osservare che la polarizzazione temporale vive. Delle tre restanti una è quella trasversale ortogonale al piano formato da $\vec{k}$ e $\hat{z}$, ed è buona; l'altra è nel piano formato da $\vec{k}$ e $\hat{z}$ ed è ortogonale a $\hat{z}$ (è un mix di una trasversa e quella longitudinale).
+
+\subsubsection{Modi in d dimensioni}
+In d dimensioni spaziotemporali ho che tutti i ragionamenti precedenti si estendono, solo che possono esserci più o meno modi trasversi. In d=2 non ho modi propaganti, in d=3 ne ho uno, ecc..
+
+\subsection{Tensore energia impulso in elettromagnetismo}
+Ricordiamo che questo tensore si ottiene mediante il teorema di Noether usando come simmetria le traslazioni. Per un solo campo si ha $\phi \rightarrow \phi + \delta x^\mu \partial_\mu \phi$, $\delta \L = \delta x^\mu \partial_\mu\L = \delta \phi [E.L.] + \partial_\mu (\Pi^\mu \delta \phi)$. Quando valgono le equazioni del moto si ha quindi che
+\[ \partial_\mu T^{\mu\nu} = \partial_\mu(\Pi^\mu \partial^\mu \phi - \eta^{\mu\nu} \L) = 0 \]
+
+Discutiamo il caso leggermente più complesso di campo massivo, cioè
+\[ \L = -\dfrac{1}{4} F_{\mu\nu} F^{\mu\nu} + \dfrac{1}{2} m^2 A^\mu A_\mu \]
+\[ \Pi^{\mu\nu} = \dfrac{\partial \L}{\partial(\partial_\mu A_\nu)} = -\dfrac{1}{2} F^{\alpha\beta} \dfrac{\partial F_{\alpha\beta}}{\partial(\partial_\mu A_\nu)} = -\dfrac{1}{2} F^{\alpha\beta} (\delta^\mu_\alpha\delta^\nu_\beta - \delta^\mu_\beta\delta^\nu_\alpha) = - F^{\mu\nu} \]
+Da cui
+\[ T^{\mu\nu} = \Pi^{\mu\alpha}\partial^\nu A_\alpha - \eta^{\mu\nu} \L \]
+che però non è simmetrico. Sostituendo $\Pi$
+\[ T^{\mu\nu} = -F^{\mu\alpha}\partial^\nu A_\alpha - \eta^{\mu\nu} \L \]
+il primo termine è problematico e lo gestisco cercando di simmetrizzare e integrando per parti, cioè
+\[ T^{\mu\nu} = -F^{\mu\alpha}F^\nu_{\enspace\alpha} - F^{\mu\alpha}\partial_\alpha A^\nu -\eta^{\mu\nu} \L \]
+\[ F^{\mu\alpha}\partial_\alpha A^\nu = \partial_\alpha(F^{\mu\alpha} A^\nu) + A^\nu \partial_\alpha F^{\alpha \mu} = \partial_\alpha(F^{\mu\alpha} A^\nu) - m^2 A^\mu A^\nu \]
+usando infine l'equazione del moto. Il termine $\partial_\alpha(A^\nu F^{\mu\alpha})$ è eliminabile in quanto $\partial_\mu T^{\mu\nu} = .. + \partial_\mu\partial_\alpha(F^{\mu\alpha}A^\nu)$, cioè è la contrazione di un tensore simmetrico con uno antisimmetrico in $\mu,\alpha$. Calcolando $T^{00}$ si ricava
+\[ T^{\mu\nu} = -F^{\mu\alpha} F^\nu_{\enspace\alpha} - \eta^{\mu\nu} \L + m^2 A^\mu A^\nu \]
+\[ T^{00} = \dfrac{1}{2}(E^2+B^2) + \dfrac{1}{2} m^2 (A_0^2 + \vec{A}^2) \]
+a meno di una divergenza spaziale.
+
+\end{document}
