@@ -1,7 +1,7 @@
 \documentclass[12pt,oneside,notitlepage,abstracton,a4paper]{scrartcl}
 \usepackage{epsfig,scrpage2,graphicx,hyperref}
 \usepackage[a4paper, left=2cm, right=2cm, bottom=3cm]{geometry}
-\usepackage{beppe_package_eng} 
+\usepackage{beppe_package_eng}
 
 \renewcommand{\L}{\mathcal{L}}
 \newcommand{\A}{\mathcal{A}}
@@ -46,6 +46,7 @@ Il problema è imporre la condizione di gauge $\vec{A} \cdot \hat{z} = 0$. Parti
 In d dimensioni spaziotemporali ho che tutti i ragionamenti precedenti si estendono, solo che possono esserci più o meno modi trasversi. In d=2 non ho modi propaganti, in d=3 ne ho uno, ecc..
 
 \subsection{Tensore energia impulso in elettromagnetismo}
+\subsubsection{Noether e simmetrizzazione}
 Ricordiamo che questo tensore si ottiene mediante il teorema di Noether usando come simmetria le traslazioni. Per un solo campo si ha $\phi \rightarrow \phi + \delta x^\mu \partial_\mu \phi$, $\delta \L = \delta x^\mu \partial_\mu\L = \delta \phi [E.L.] + \partial_\mu (\Pi^\mu \delta \phi)$. Quando valgono le equazioni del moto si ha quindi che
 \[ \partial_\mu T^{\mu\nu} = \partial_\mu(\Pi^\mu \partial^\mu \phi - \eta^{\mu\nu} \L) = 0 \]
 
@@ -63,5 +64,72 @@ usando infine l'equazione del moto. Il termine $\partial_\alpha(A^\nu F^{\mu\alp
 \[ T^{\mu\nu} = -F^{\mu\alpha} F^\nu_{\enspace\alpha} - \eta^{\mu\nu} \L + m^2 A^\mu A^\nu \]
 \[ T^{00} = \dfrac{1}{2}(E^2+B^2) + \dfrac{1}{2} m^2 (A_0^2 + \vec{A}^2) \]
 a meno di una divergenza spaziale.
+
+\subsubsection{Derivazione in gravità}
+TODO
+
+\section{Lie groups and algebras}
+Si tratteranno prevalentemente gruppi di matrici, solo a tratti si discuterà la generalizzazione al caso di gruppi astratti.
+\subsection{Definizioni}
+Sottogruppo, centro di un gruppo, prodotto diretto di gruppi, omomorfismo di gruppi, azione di gruppo.
+\paragraph{Coset} Dato un gruppo $G$ e un suo sottogruppo $H$ possiamo definire il \emph{coset space} destro $G/H$ come l'insieme quoziente secondo la relazione: $g_1 \sim g_2$ \emph{iff} $g_1 = g_2 h$ per qualche $h\in H$. Il coset dell'identità è $H$ stesso. I coset sono interessanti perchè permettono di caratterizzare i quozienti fra gruppi.
+
+\subsubsection{Spazi omogenei}
+\paragraph{Teorema} Se il gruppo $G$ agisce transitivamente sullo spazio $A$ (cioè $\forall\,a,a'\in A,\, \exists g\in G\,s.t.a' = ga$) allora vale l'isomorfismo $A=G/H$ dove $H$ è il sottogruppo stabilizzatore di un qualunque elemento in $A$.
+\subparagraph{Dimostrazione (cenno)} Si deve dimostrare che fissato $a_0 \in A$ e scelto arbitrariamente $a\in A$ esiste sempre un unico coset i cui elementi collegano $a$ e $a_0$. L'esistenza è data dalla transitività, l'unicità viene dall'aver quozientato per lo stabilizzatore. Si deve mostrare anche che il sottogruppo stabilizzatore non dipende da $a$.
+
+\subparagraph{Esempio: $SO(3)/SO(2) \equiv S^2$} Dimostrazione: $SO(3)$ agisce sulla sfera $S^2$ in modo transitivo (dati due punti esiste sempre una rotazione che li collega). Questa rotazione però non è unica: raggiunto il punto posso poi ruotare attorno al diametro della sfera passante per tale punto e ho nuove rotazioni che collegano i due punti. Non posso quindi identificare $SO(3)$ con $S^2$, devo prima quozientare per quelle rotazioni che fissano un particolare punto ($SO(2)$).
+
+\subparagraph{Esempio: $SO(n)/SO(n-1) \equiv S^n$} Dimostrazione: identica a prima. $SO(n)$ agisce in modo transitivo su $S^n$ e lo stabilizzatore di un punto è $SO(n-1)$.
+
+\subparagraph{Esempio: $SU(n)/SU(n-1) \equiv S^{2n}$} Dimostrazione: $SU(n)$ agisce su vettori complessi $n$ dimensionali e ne preserva la norma. Equivalentemente agisce su vettori $2n$ dimensionali reali e, poichè preserva la norma, dobbiamo restringerci a $S^{2n}$ per avere un'azione transitiva. Qual è lo stabilizzatore? Prendo il vettore (colonna) $n$ dimensionale $(1, 0, .., 0)$ e cerco gli elementi di $SU(n)$ che lo fissano. La prima colonna della matrice dovrà essere $(1, 0, .. 0)$ e per unitarietà anche la prima riga è fissata. La restante matrice $(n-1)\times(n-1)$ ha il solo vincolo di essere unitaria.
+
+\subsubsection{Sottogruppo normale}
+$H$ sottogruppo di $G$ è \emph{normale} se $\forall\,g\in G$ $ghg^{-1} \in H$. In tal caso il quoziente $G/H$ è un gruppo. Esempi di sottogruppi normali sono il centro di un gruppo qualsiasi oppure $(G_1, e)$ sottogruppo di $G_1 \times G_2$.
+
+\subsubsection{Esercizio: $U(n)/U(1) \equiv SU(n)/Z_n$}
+dove $Z_n$ è il centro di $SU(n)$, mentre $U(1)$ è embeddato dentro $U(n)$ come matrici $\mathrm{Id}\, e^{i\theta}$, $\theta\in (0,2\pi)$.
+
+\paragraph{Qual è il centro di $SU(n)$?} Stiamo cercando matrici $M\in SU(n)$ con $AM = MA$ $\forall\,A \in SU(n)$. Posso vedere $A$ come la rappresentazione matriciale del gruppo $SU(n)$ (rappresentazione tautologica) che è nota essere irriducibile. Allora per il lemma di Schur $M= \lambda\, Id$, dove $\lambda$ è radice $n$esima dell'unità (poichè \emph{det}($\lambda\,\mathrm{Id}$)=1). Il gruppo è dunque isomorfo a quello ciclico di ordine $n$: $Z_n$.
+
+\paragraph{Soluzione esercizio} Identifico due matrici unitarie se sono la stessa a meno di una fase. Questa è una relazione di equivalenza e $[\mathrm{id}] = \mathrm{Id} e^{i\theta}\simeq U(1)$. Noto che nel variare $\theta$ da 0 a $2\pi$ il determinante passa $n$ volte per 1. Questa identificazione della fase è possibile anche in due step successivi: dichiaro $U\in U(n)$ equivalente a $S\in SU(n)$ sse $U=S e^{i\theta}$ con $\theta \in [0,\frac{2\pi}{n})$. Ogni $U$ è equivalente a una e una sola $S$, dunque la relazione è ben definita. Il coset space è isomorfo a $SU(n)$. Per completare l'identificazione della fase dichiaro $U,V\in SU(n)$ equivalenti sse $U=V e^{\frac{2\pi i k}{n}}$ per qualche $k\in[0,..,k-1]$. Questo conclude.
+
+\subsubsection{Gruppo semplice e semisemplice}
+\paragraph{Definizione} Un gruppo si dice semplice se non contiene sottogruppi normali, mentre si dice semisemplice se non contiene sottogruppi normali abeliani (ma può contenerne di non abeliani). Semplice implica semisemplice.
+
+\subsection{Lie Algebras}
+Dato un gruppo di Lie astratto sia $V$ lo spazio vettoriale tangente all'identità. Per rendere $V$ un'algebra lo si dovrà dotare del prodotto bracket di Lie $V\times V \rightarrow V$, che vedremo dopo. Per ora ci limitiamo a vederlo per le matrici.
+
+Dato un gruppo $G$ di matrici e una curva $g(t)\in G$ con $g(0) = \mathrm{Id}$ si ha che $M$ appartiene all'algebra $\A$, dove $g(t) \simeq \mathrm{Id} + M t + \O(t^2)$. Nel caso matriciale il bracket di Lie è il commutatore fra matrici $[M,N] := MN-NM$.
+
+In astratto se $M_1,M_2\in \A$ allora $\exists\, g_1(t),g_2(t)\in G$ con $g_i(t) = \mathrm{Id} + M_i t + \O(t^2)$. Sia $u = \sqrt{t}$, allora $g(t) := g_1(u)g_2(u)g_1^{-1}(u)g_2^{-1}(u)$. Si definisce bracket di Lie $[M_1,M_2]$ l'elemento $g(t) = \mathrm{Id} + [M_1,M_2] t + \O(t^2)$. Si verifica la compatibilità con la precedente definizione nel caso di matrici.
+
+\subsubsection{Esempi}
+\paragraph{u(n)} $U(t) = 1 + At$, $U^\dagger U = 1$, da cui $(1+A^\dagger t)(1+At) = 1$, cioè $A+A^\dagger = 0$. La dimensione è $n^2$ (numero di parametri reali).
+\paragraph{su(n)} Come prima ma ora $\mathrm{det}(1+At)=1+\mathrm{Tr}(A)t$, da cui $\mathrm{Tr}(A) = 0$. Poichè la diagonale è puramente immaginaria, questa è una sola condizione aggiuntiva, da cui la dimensione è $n^2-1$.
+\paragraph{so(n)} Analogamente si ha $A + A^t = 0$, dimensione $\dfrac{n(n-1)}{2}$.
+
+\subsubsection{Teoremi}
+\paragraph{Enunciato} Ogni algebra di Lie reale, se esponenziata (esiste un modo canonico per farlo) genera un gruppo di Lie semplicemente connesso.
+\paragraph{Enunciato} Data un'algebra $\A$ e il gruppo di Lie semplicemente connesso $G$ con quell'algebra, quozientando $G$ per suoi sottogruppi discreti normali si ottengono tutti e soli i gruppi di Lie che hanno $\A$ come algebra.
+\paragraph{Enunciato} Dato $G$ con algebra $\mathit{g}$ e sottoalgebra $\mathit{h}$, $\mathit{h}$ genera un sottogruppo connesso di $G$ in modo univoco. Viceversa un sottogruppo ha come algebra una sottoalgebra.
+\paragraph{Enunciato} Il prodotto diretto di due gruppi di Lie ha come algebra la somma diretta delle algebre.
+
+\paragraph{Invariant subalgebra} Una sottoalgebra $C$ di $\A$ si dice sot. invariante (o ideale) sse $\forall\, c\in C,\, a\in A$ $[c,a] \in C$.
+
+\paragraph{Enunciato} Un sottogruppo normale $H$ di $G$ ha come algebra un'ideale TODO dell'algebra di $G$.
+
+\paragraph{Simple e semisimple} Un'algebra di Lie è semplice se 
+
+\subsubsection{Costanti di struttura}
+Possiamo scrivere $[T_i,T_j] = C_{ijk} T_k$ per $C_{ijk}$ costanti di struttura del gruppo fissata la base $\{T\}$ dell'algebra $\A$. $C$ sono antisimmetriche per scambio dei primi due indici. Più avanti vedremo che se l'algebra è compatta e semisemplice allora è possibile scegliere la base in modo da avere antisimmetria totale. Fissare le costanti di struttura fissa l'algebra a meno di isomorfismo.
+
+\subsubsection{Rappresentazioni} Sia $V$ una rappresentazione di $G$ con azione $T(g)$. Sia $\psi$ un vettore. $(T(g) \psi)_i = T_{ij}(g) \psi_j$. Equivalentemente ($\psi = e_i \psi_i$) i vettori di base $e_i$ trasformano come $T(g)e_i = T_{ji}(g) e_j$.
+
+\paragraph{Rappresentazione coniugata} TODO
+
+\paragraph{Rappresentazione aggiunta di un gruppo} Si prenda come spazio vettoriale quello dell'algebra (cioè mappo $g\in G$ in un endomorfismo di $\A$). In astratto $g$ va in $Ad_g \in \A \mathrm{ut}(\A)$ che agisce su $h\in \A$ così: si consideri $\beta(t)\in G$ con vettore tangente $h\in \A$ in 0. $Ad_g(h)$ è definito come il vettore tangente in 0 di $\alpha(t) = g\beta(t) g^{-1}$. Si può dire che $Ad_g$ è il differenziale dell'azione di coniugio $\Psi_g: G\rightarrow G$ con $\Psi_g(g') = gg'g^{-1}$. Se il gruppo è di matrici allora $Ad_g(h) = ghg^{-1}$.
+
+\paragraph{Rappresentazione aggiunta dell'algebra} E' il differenziale della mappa $Ad: G\rightarrow \A \mathrm{ut}(\A)$, $g\rightarrow Ad_g$. Lo spazio $\A \mathrm{ut}(\A)$ è un gruppo di Lie, la cui algebra è isomorfa allo spazio delle derivazioni su $\A$. $ad: \A \rightarrow D\mathrm{er}(\A)$, $ad_x(y) := [x,y]$ ($x,y\in \A$). Se $g(t) = e^{tx}$ allora $Ad_{g(t)}$ è una curva di automorfismi di $\A$ e, per matrici, l'azione di questi automorfismi è $Ad_{g(t)}(y) = g(t) y g^{-1}(t)$. Prendendo il differenziale della mappa $g(t) \rightarrow Ad_{g(t)}$ si ha che $x \rightarrow ad_x$ con $g(t) y g^{-1}(t) = 1 + ad_x(y) t$, da cui $ad_x(y) = xy-yx$.
 
 \end{document}
