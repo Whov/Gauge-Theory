@@ -90,15 +90,15 @@ $H$ sottogruppo di $G$ è \emph{normale} se $\forall\,g\in G$ $ghg^{-1} \in H$. 
 \subsubsection{Esercizio: $U(n)/U(1) \equiv SU(n)/Z_n$}
 dove $Z_n$ è il centro di $SU(n)$, mentre $U(1)$ è embeddato dentro $U(n)$ come matrici $\mathrm{Id}\, e^{i\theta}$, $\theta\in (0,2\pi)$.
 
-\paragraph{Qual è il centro di $SU(n)$?} Stiamo cercando matrici $M\in SU(n)$ con $AM = MA$ $\forall\,A \in SU(n)$. Posso vedere $A$ come la rappresentazione matriciale del gruppo $SU(n)$ (rappresentazione tautologica) che è nota essere irriducibile. Allora per il lemma di Schur $M= \lambda\, Id$, dove $\lambda$ è radice $n$esima dell'unità (poichè \emph{det}($\lambda\,\mathrm{Id}$)=1). Il gruppo è dunque isomorfo a quello ciclico di ordine $n$: $Z_n$.
+\paragraph{Premessa: qual è il centro di $SU(n)$?} Stiamo cercando matrici $M\in SU(n)$ con $AM = MA$ $\forall\,A \in SU(n)$. Posso vedere $A$ come la rappresentazione matriciale del gruppo $SU(n)$ (rappresentazione tautologica) che è nota essere irriducibile. Allora per il lemma di Schur $M= \lambda\, Id$, dove $\lambda$ è radice $n$esima dell'unità (poichè \emph{det}($\lambda\,\mathrm{Id}$)=1). Il gruppo è dunque isomorfo a quello ciclico di ordine $n$: $Z_n$.
 
-\paragraph{Soluzione esercizio} Identifico due matrici unitarie se sono la stessa a meno di una fase. Questa è una relazione di equivalenza e $[\mathrm{id}] = \mathrm{Id} e^{i\theta}\simeq U(1)$. Noto che nel variare $\theta$ da 0 a $2\pi$ il determinante passa $n$ volte per 1. Questa identificazione della fase è possibile anche in due step successivi: dichiaro $U\in U(n)$ equivalente a $S\in SU(n)$ sse $U=S e^{i\theta}$ con $\theta \in [0,\frac{2\pi}{n})$. Ogni $U$ è equivalente a una e una sola $S$, dunque la relazione è ben definita. Il coset space è isomorfo a $SU(n)$. Per completare l'identificazione della fase dichiaro $U,V\in SU(n)$ equivalenti sse $U=V e^{\frac{2\pi i k}{n}}$ per qualche $k\in[0,..,k-1]$. Questo conclude.
+\paragraph{Soluzione esercizio} Identifico due matrici unitarie se sono la stessa a meno di una fase. Questa è una relazione di equivalenza e $[\mathrm{Id}] = \mathrm{Id} e^{i\theta}\simeq U(1)$. Noto che nel variare $\theta$ da 0 a $2\pi$ il determinante passa $n$ volte per 1. Questa identificazione della fase è possibile anche in due step successivi: dichiaro $U\in U(n)$ equivalente a $S\in SU(n)$ sse $U=S e^{i\theta}$ con $\theta \in [0,\frac{2\pi}{n})$. Ogni $U$ è equivalente a una e una sola $(S,\theta)$, dunque la relazione è ben definita. Il coset space è isomorfo a $SU(n)$. Per completare l'identificazione della fase dichiaro $U,V\in SU(n)$ equivalenti sse $U=V e^{\frac{2\pi i k}{n}}$ per qualche $k\in[0,..,k-1]$. Questo corrisponde a quozientare per $Z_n$, che conclude.
 
 \subsubsection{Gruppo semplice e semisemplice}
-\paragraph{Definizione} Un gruppo si dice semplice se non contiene sottogruppi normali, mentre si dice semisemplice se non contiene sottogruppi normali abeliani (ma può contenerne di non abeliani). Semplice implica semisemplice.
+\paragraph{Definizione} Un gruppo di Lie si dice semplice se è connesso e non abeliano e non contiene sottogruppi normali connessi non banali; notare che sottogruppi normali discreti sono ammessi in quanto non connessi. Si dice semisemplice se è connesso e non contiene sottogruppi normali connessi non banali \emph{abeliani}. Semplice implica semisemplice.
 
 \subsection{Lie Algebras}
-Dato un gruppo di Lie astratto sia $V$ lo spazio vettoriale tangente all'identità. Per rendere $V$ un'algebra lo si dovrà dotare del prodotto bracket di Lie $V\times V \rightarrow V$, che vedremo dopo. Per ora ci limitiamo a vederlo per le matrici.
+Dato un gruppo di Lie astratto sia $V$ lo spazio vettoriale (reale) tangente all'identità. Notare che con spazio reale si intende che il campo usato per fare combinazioni lineari è $\R$, ma i vettori potrebbero venire scritti come matrici complesse. Per rendere $V$ un'algebra lo si dovrà dotare del prodotto bracket di Lie $V\times V \rightarrow V$, che vedremo dopo. Per ora ci limitiamo a vederlo per le matrici.
 
 Dato un gruppo $G$ di matrici e una curva $g(t)\in G$ con $g(0) = \mathrm{Id}$ si ha che $M$ appartiene all'algebra $\A$, dove $g(t) \simeq \mathrm{Id} + M t + \O(t^2)$. Nel caso matriciale il bracket di Lie è il commutatore fra matrici $[M,N] := MN-NM$.
 
@@ -111,25 +111,65 @@ In astratto se $M_1,M_2\in \A$ allora $\exists\, g_1(t),g_2(t)\in G$ con $g_i(t)
 
 \subsubsection{Teoremi}
 \paragraph{Enunciato} Ogni algebra di Lie reale, se esponenziata (esiste un modo canonico per farlo) genera un gruppo di Lie semplicemente connesso.
+\paragraph{Enunciato} Per un gruppo di Lie connesso e compatto la mappa esponenziale è suriettiva.
 \paragraph{Enunciato} Data un'algebra $\A$ e il gruppo di Lie semplicemente connesso $G$ con quell'algebra, quozientando $G$ per suoi sottogruppi discreti normali si ottengono tutti e soli i gruppi di Lie che hanno $\A$ come algebra.
 \paragraph{Enunciato} Dato $G$ con algebra $\mathit{g}$ e sottoalgebra $\mathit{h}$, $\mathit{h}$ genera un sottogruppo connesso di $G$ in modo univoco. Viceversa un sottogruppo ha come algebra una sottoalgebra.
 \paragraph{Enunciato} Il prodotto diretto di due gruppi di Lie ha come algebra la somma diretta delle algebre.
 
 \paragraph{Invariant subalgebra} Una sottoalgebra $C$ di $\A$ si dice sot. invariante (o ideale) sse $\forall\, c\in C,\, a\in A$ $[c,a] \in C$.
 
-\paragraph{Enunciato} Un sottogruppo normale $H$ di $G$ ha come algebra un'ideale TODO dell'algebra di $G$.
+\paragraph{Enunciato} Un sottogruppo normale $H$ di $G$ ha come algebra un'ideale dell'algebra di $G$.
 
-\paragraph{Simple e semisimple} Un'algebra di Lie è semplice se 
+\paragraph{Simple e semisimple} Un'algebra di Lie è semplice se le uniche subalgebre invarianti sono $0$ e se stessa. Un'algebra semisemplice è somma diretta di algebre semplici, o equivalentemente se non contiene subalgebre invarianti abeliane. A dopo una caratterizzazione in termini di forma di killing. I rispettivi tipi di algebre esponenziano ai rispettivi tipi di gruppo.
 
 \subsubsection{Costanti di struttura}
-Possiamo scrivere $[T_i,T_j] = C_{ijk} T_k$ per $C_{ijk}$ costanti di struttura del gruppo fissata la base $\{T\}$ dell'algebra $\A$. $C$ sono antisimmetriche per scambio dei primi due indici. Più avanti vedremo che se l'algebra è compatta e semisemplice allora è possibile scegliere la base in modo da avere antisimmetria totale. Fissare le costanti di struttura fissa l'algebra a meno di isomorfismo.
+Possiamo scrivere $[T_i,T_j] = C_{ijk} T_k$ per $C_{ijk}$ costanti di struttura del gruppo fissata la base $\{T\}$ dell'algebra $\A$. $C$ sono antisimmetriche per scambio dei primi due indici. Più avanti vedremo che se l'algebra è compatta allora è possibile scegliere la base in modo da avere antisimmetria totale. Fissare le costanti di struttura fissa l'algebra a meno di isomorfismo. $C_{ijk}$ sono reali perchè $\A$ è sp. vettoriale reale, dunque $[T_i,T_j]$ si scompone come combinazione lineare reale di vettori di base.
 
 \subsubsection{Rappresentazioni} Sia $V$ una rappresentazione di $G$ con azione $T(g)$. Sia $\psi$ un vettore. $(T(g) \psi)_i = T_{ij}(g) \psi_j$. Equivalentemente ($\psi = e_i \psi_i$) i vettori di base $e_i$ trasformano come $T(g)e_i = T_{ji}(g) e_j$.
+
+Per l'algebra si richiede anche che sia preservato il bracket di Lie: $T([x,y]) = T(x)T(y)-T(y)T(x)$.
 
 \paragraph{Rappresentazione coniugata} TODO
 
 \paragraph{Rappresentazione aggiunta di un gruppo} Si prenda come spazio vettoriale quello dell'algebra (cioè mappo $g\in G$ in un endomorfismo di $\A$). In astratto $g$ va in $Ad_g \in \A \mathrm{ut}(\A)$ che agisce su $h\in \A$ così: si consideri $\beta(t)\in G$ con vettore tangente $h\in \A$ in 0. $Ad_g(h)$ è definito come il vettore tangente in 0 di $\alpha(t) = g\beta(t) g^{-1}$. Si può dire che $Ad_g$ è il differenziale dell'azione di coniugio $\Psi_g: G\rightarrow G$ con $\Psi_g(g') = gg'g^{-1}$. Se il gruppo è di matrici allora $Ad_g(h) = ghg^{-1}$.
 
-\paragraph{Rappresentazione aggiunta dell'algebra} E' il differenziale della mappa $Ad: G\rightarrow \A \mathrm{ut}(\A)$, $g\rightarrow Ad_g$. Lo spazio $\A \mathrm{ut}(\A)$ è un gruppo di Lie, la cui algebra è isomorfa allo spazio delle derivazioni su $\A$. $ad: \A \rightarrow D\mathrm{er}(\A)$, $ad_x(y) := [x,y]$ ($x,y\in \A$). Se $g(t) = e^{tx}$ allora $Ad_{g(t)}$ è una curva di automorfismi di $\A$ e, per matrici, l'azione di questi automorfismi è $Ad_{g(t)}(y) = g(t) y g^{-1}(t)$. Prendendo il differenziale della mappa $g(t) \rightarrow Ad_{g(t)}$ si ha che $x \rightarrow ad_x$ con $g(t) y g^{-1}(t) = 1 + ad_x(y) t$, da cui $ad_x(y) = xy-yx$.
+\paragraph{Rappresentazione aggiunta dell'algebra} E' il differenziale della mappa $Ad: G\rightarrow \A \mathrm{ut}(\A)$, $g\rightarrow Ad_g$. Lo spazio $\A \mathrm{ut}(\A)$ è un gruppo di Lie, la cui algebra è isomorfa allo spazio delle derivazioni su $\A$. $ad: \A \rightarrow D\mathrm{er}(\A)$, $ad_x(y) := [x,y]$ ($x,y\in \A$). Se $g(t) = e^{tx}$ allora $Ad_{g(t)}$ è una curva di automorfismi di $\A$ e, per matrici, l'azione di questi automorfismi è $Ad_{g(t)}(y) = g(t) y g^{-1}(t)$. Prendendo il differenziale della mappa $g(t) \rightarrow Ad_{g(t)}$ si ha che $x \rightarrow ad_x$ con $g(t) y g^{-1}(t) = 1 + ad_x(y) t$, da cui $ad_x(y) = xy-yx$. Si dimostra che anche nel caso astratto si ottiene il bracket di Lie.
+
+Si può dimostrare che vale l'identità di Jacobi, da cui si dimostra che $ad([x,y]) = ad(x)ad(y)-ad(y)ad(x)$. Le matrici della rappresentazione aggiunta dell'algebra coincidono con le costanti di struttura, cioè $ad_{T_i}(T_j) = M^{(i)}_{kj} T_k = [T_i,T_j] = C_{ijk} T_k$, da cui $C_{ijk} = M^{(i)}_{kj}$. Poichè $C_{ijk}$ sono reali, le matrici in questa rappresentazione sono reali.
+
+\subsection{Gruppi e algebre compatti}
+\subsubsection{Forma di Killing}
+\paragraph{Definizione} Si definisce forma di Killing dell'algebra la mappa $k(x,y) := Tr[ad_x ad_y]$. E' una mappa bilineare simmetrica $\A \times \A \rightarrow \R$.
+
+In base $[ad_{T_i} \circ ad_{T_j}]T_k = [T_i, [T_j, T_k]] = C_{imn} C_{jkm} T_n$. Prendere la traccia equivale a $C_{imn} C_{jkm} \delta_{kn}$, cioè $B_{ij} = C_{imn} C_{jnm}$.
+
+Vale una proprietà "associativa" $k([x,y], z) = k(x, [y,z])$. \emph{Dimostrazione}: $Tr[ad_{[x,y]} ad_z] = Tr[(ad_xad_y-ad_yad_x)ad_z] = Tr[ad_xad_yad_z - ad_xad_zad_y] = Tr[ad_x [ad_y,ad_z]] = k(x, [y,z])$
+
+\paragraph{Compattezza} Un'algebra di Lie si dice compatta se la forma di Killing è definita negativa. Esiste anche un'altra definizione in base a cui un'algebra di Lie è compatta se genera un gruppo compatto, ma è più debole.
+
+\paragraph{Enunciato} Un'algebra è semisemplice sse la forma di Killing è non degenere. Algebre compatte sono semisemplici.
+
+Se un'algebra viene da un gruppo compatto non è detto che sia semisemplice, dunque la forma di Killing può essere degenere; sarà però semidefinita negativa.
+
+\paragraph{Prodotto scalare} Se l'algebra è compatta esiste un prodotto scalare: l'opposto della forma di Killing. Possiamo scrivere il prodotto scalare più facilmente per algebre di matrici semplici, a meno di fattore globale, come $-Tr[xy]$, dove il prodotto è quello fra matrici. Dunque $\langle x|y \rangle = -k(x,y) = -\lambda Tr[xy]$.
+
+Possiamo vedere che $\lambda>0$ perchè il gruppo è compatto, dunque la rappresentazione tautologica su $\C^d$ è unitaria nella base canonica. Se le matrici del gruppo sono unitarie allora le matrici dell'algebra sono antihermitiane: $T_i^\dagger = -T_i$. Ricordando che $Tr[T_i^\dagger T_j]$ è un prodotto scalare, cioè $Tr[T_i^\dagger T_i]>0$, si conclude. I $\lambda$ sono tabulati per le algebre di lie semplici più comuni.
+
+\paragraph{Dimostrazione (cenno)} Siano $(K_A)_{ij} := k(T_i, T_j)$, $(K_B)_{ij} := Tr[T_iT_j]$ (entrambe le matrici hanno dimensione la dimensione di $\A$); $k(\alpha_i T_i, \beta_j T_j) = \alpha_i \beta_j (K_A)_{ij}$, analogamente per $K_B$. Si osserva che $k$ e $Tr$ sono invarianti per l'azione di $Ad$ sotto cui $Ad_g(S) = gSg^{-1}$ (per la traccia è banale, per $k$ si osservi che non cambiano le costanti di struttura sotto isomorfismo). Dunque in coordinate $K_{A/B} = M_g^t K_{A/B} M_g$.
+
+Per non degenerazione della forma di killing questa è invertibile e posso definire $T := K_A^{-1} K_B$. Per invarianza si ha $M^t K_A MT = M^t K_A TM$. $det(M)\neq 0$ perchè $M$ è l'azione di coniugio in coordinate, che è iniettiva, e per dimensioni è un isomorfismo. $det(K_A)\neq 0$ e si ha $M_g T = T M_g\,\forall g\in G$. Si può dimostrare che se $Ad$, rappresentazione di $G$ su $\A$, fosse riducibile, allora l'algebra $\A$ non sarebbe semplice; allora $\A$ è irriducibile sotto l'azione di $G$ e per il secondo lemma di Schur $T = \lambda \mathrm{Id}$.
+
+Se l'algebra non è semplice per compattezza è comunque semisemplice, cioè somma di algebre semplici. In tal caso la forma di killing fra elementi di subalgebre invarianti distinte è nulla (convincersene guardando le costanti di struttura), mentre fra elementi della stessa subalgebra è proporzionale a $Tr$ con una costante di proporzionalità che dipende dalla subalgebra invariante.
+
+\paragraph{Esempio} Per dimostrare che un gruppo di matrici $G$ non è compatto possiamo prendere l'algebra di Lie e cercare $M\in\A,M\neq 0$ con $-Tr(M^2)\le0$. Lo troveremo sse $G$ non è compatto.
+
+\paragraph{Antisimmetria di $C_{ijk}$} Se il gruppo è compatto possiamo usare il prodotto scalare per trovare una base ortogonale:
+\[ k(T_i,T_j) = -\delta_{ij} \]
+$k(T_l, [T_i, T_j]) = -C_{ijk} = k([T_l, T_i], T_j) = C_{lij}$. Notare quindi che l'antisimmetria è totale solo per certe particolari basi dell'algebra.
+
+\paragraph{Enunciato} Un'algebra di Lie che viene da un gruppo compatto si scrive univocamente come somma diretta di algebre $u(1)$ e di algebre semplici.
+
+\section{Non Abelian Gauge Fields}
+%Finalmente!
 
 \end{document}
